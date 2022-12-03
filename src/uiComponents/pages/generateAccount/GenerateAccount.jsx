@@ -102,7 +102,7 @@ export const GenerateAccount = () => {
                         ''
                     }
                     {appCtx.paymentData?.ipfsHash ?
-                        <CustomButton primary={false} onClick={() => { window.open(`/?ipfsUrl=${appCtx.paymentData?.ipfsUrl}&name=${appCtx.nftData?.name}&description=${appCtx.nftData?.description}&ipfsHash=${appCtx.paymentData?.ipfsHash}&assetType=${appCtx.paymentData?.assetType}&assetId=${appCtx.paymentData?.assetId}&s3url=${appCtx.paymentData?.s3url}`, '_blank') }}
+                        <CustomButton primary={false} onClick={() => { window.open(`https://nftversedev.github.io/landingpage/?ipfsUrl=${appCtx.paymentData?.ipfsUrl}&name=${appCtx.nftData?.name}&description=${appCtx.nftData?.description}&ipfsHash=${appCtx.paymentData?.ipfsHash}&assetType=${appCtx.paymentData?.assetType}&assetId=${appCtx.paymentData?.assetId}&s3url=${appCtx.paymentData?.s3url}`, '_blank') }}
                             className='cursor-pointer mt-[30px] w-[100%]'
                         >
                             Go to reward page
