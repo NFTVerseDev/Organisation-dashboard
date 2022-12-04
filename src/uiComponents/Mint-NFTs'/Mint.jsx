@@ -199,7 +199,7 @@ const Mint = ({setIpfsUrl,setNftData}) => {
                     data: {
                         "name": title,
                         "description": description,
-                        "imageUrl":`ipfs://${ipfsHash}`
+                        "image":`ipfs://${ipfsHash}`
                     },
                     method: "POST",
                     headers: {
@@ -233,6 +233,15 @@ const Mint = ({setIpfsUrl,setNftData}) => {
                             // localStorage.setITem('nftData',data);
                             // setNftData(data);
                             dispatch(appActions.setNftData(data));
+                            // dispatch(
+                            //     appActions.paymentData({
+                            //         ipfsUrl: data.ipfsUrl.substring(7, data.ipfsUrl.length), 
+                            //         ipfsHash: ipfsHash,
+                            //         assetId:appCtx.paymentData.assetId,
+                            //         s3url:appCtx.paymentData.s3url,
+                            //         assetType:appCtx.paymentData.assetType,
+                            //     })
+                            // )
                         }
                     )
                 }
@@ -240,31 +249,32 @@ const Mint = ({setIpfsUrl,setNftData}) => {
 
 
             type !== 'text' ? (data.ipfsHash = ipfsHash) : (data.description = text);
-            toast.promise(
-                () =>
-                    makeRequest(
-                        {
-                            url: `https://bs-dev.api.onnftverse.com/v1/marketplace/3/blockchain/${localStorage.getItem("blockchain")}/nft/mint`,
-                            data,
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'X-Auth-Token': appCtx.authToken,
+            toast('request Successfull !!!')
+            // toast.promise(
+            //     () =>
+            //         makeRequest(
+            //             {
+            //                 url: `https://bs-dev.api.onnftverse.com/v1/marketplace/3/blockchain/${localStorage.getItem("blockchain")}/nft/mint`,
+            //                 data,
+            //                 method: 'POST',
+            //                 headers: {
+            //                     'Content-Type': 'application/json',
+            //                     'X-Auth-Token': appCtx.authToken,
 
-                            }
-                        },
-                        (res) => {
-                            console.log(res)
-                            window.scroll(0,0)
-                            localStorage.setItem('claim',true);
-                        },
-                    ),
-                {
-                    pending: 'Updating your NFT...',
-                    success: 'Minting request Successfull.... Please click on reward page',
-                    error: 'Something went wrong!'
-                }
-            );
+            //                 }
+            //             },
+            //             (res) => {
+            //                 console.log(res)
+            //                 window.scroll(0,0)
+            //                 localStorage.setItem('claim',true);
+            //             },
+            //         ),
+            //     {
+            //         pending: 'Updating your NFT...',
+            //         success: 'Minting request Successfull.... Please click on reward page',
+            //         error: 'Something went wrong!'
+            //     }
+            // );
             // setInterval(() => {
                 // navigate(`/`)
             // }, 2000);

@@ -135,7 +135,7 @@ const Sidebar = () => {
                             <button
                                 className={`flex gap-3`}
                                 onClick={() => {
-                                    window.open(`http://${marketplace?.domain}`);
+                                    window.open(`https://drive.google.com/file/d/1XMj0E-4kaXHjuXhNMO4kzc05P9qE1_B1/view?usp=sharing`);
                                     setHighLightButton('domain');
                                 }}
                             >

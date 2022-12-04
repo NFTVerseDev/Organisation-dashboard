@@ -539,7 +539,7 @@ export const ClaimYourRewar = ({ claimReward, setClaimedReward, ipfsUrl, nftData
 
             const accounts = await getCurrentAccount();
 
-            const mint = await window.contract.methods.mintNFT(accounts[0], `ipfs://${appCtx.paymentData?.ipfsUrl}`).send({ from: accounts[0] })
+            const mint = await window.contract.methods.mintNFT(accounts[0], `${appCtx.paymentData?.ipfsUrl}`).send({ from: accounts[0] })
                 .catch(() => {
                     setLoading(false);
                     toast("unable to claim your reward !!");
